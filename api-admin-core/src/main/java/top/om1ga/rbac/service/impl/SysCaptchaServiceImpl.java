@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.om1ga.common.cache.RedisCache;
 import top.om1ga.common.cache.RedisKeys;

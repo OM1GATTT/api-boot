@@ -37,10 +37,10 @@ public class SysAuthServiceImpl implements SysAuthService {
     public SysTokenVO loginByAccount(SysAccountLoginVO login) {
 //        验证码校验
 /*暂时不需要验证码，可以在这去掉*/
-//        boolean flag = sysCaptchaService.validate(login.getKey(), login.getCaptcha());
-//        if (!flag){
-//            throw new ServerException("验证码错误");
-//        }
+        boolean flag = sysCaptchaService.validate(login.getKey(), login.getCaptcha());
+        if (!flag){
+            throw new ServerException("验证码错误");
+        }
 
         Authentication authentication;
         try {
