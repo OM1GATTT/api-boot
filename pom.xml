@@ -12,6 +12,9 @@
     <groupId>top.om1ga</groupId>
     <artifactId>api-boot</artifactId>
     <version>${revision}</version>
+    <modules>
+        <module>api-base</module>
+    </modules>
     <packaging>pom</packaging>
     <description>多模块 API 模版项目父工程</description>
 
