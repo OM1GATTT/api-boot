@@ -1,4 +1,4 @@
-package top.om1ga.service;
+package top.om1ga.rbac.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
