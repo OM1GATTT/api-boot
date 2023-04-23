@@ -1,0 +1,13 @@
+# 配置 spring security 白名单
+
+auth:
+  ignore_urls:
+    - /actuator/**
+    - /v3/api-docs/**
+    - /webjars/**
+    - /swagger/**
+    - /swagger-resources/**
+    - /swagger-ui.html
+    - /swagger-ui/**
+    - /doc.html
+    - /
