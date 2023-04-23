@@ -16,6 +16,7 @@
         <module>api-base</module>
         <module>api-admin-core</module>
         <module>api-server</module>
+        <module>api-admin-biz</module>
     </modules>
     <packaging>pom</packaging>
     <description>多模块 API 模版项目父工程</description>
