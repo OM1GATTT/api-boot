@@ -14,6 +14,7 @@
     <version>${revision}</version>
     <modules>
         <module>api-base</module>
+        <module>api-admin-core</module>
     </modules>
     <packaging>pom</packaging>
     <description>多模块 API 模版项目父工程</description>
