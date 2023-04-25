@@ -1,9 +1,12 @@
 package top.om1ga.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.om1ga.common.utils.Result;
@@ -39,8 +42,8 @@ public class IndexController {
 
     @GetMapping("statistics2")
     @Operation(summary = "echarts 柱状图")
-    public Result<BarVO> getStatistics2(){
-        BarVO barVO = indexService.statistics2();
+    public Result<BarVO> getStatistics2(@Parameter String type){
+        BarVO barVO = indexService.statistics2(type);
         return Result.ok(barVO);
     }
 
