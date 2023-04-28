@@ -33,6 +33,15 @@ import java.util.List;
 public class NoticeController {
     private final NoticeService noticeService;
 
+
+    @PostMapping("delete")
+    @Operation(summary = "批量删除通知")
+    @PreAuthorize("hasAuthority('sys:notice:delete')")
+    public Result<String> delete(@RequestBody List<Long> ids){
+        noticeService.delete(ids);
+        return Result.ok("删除成功");
+    }
+
     @GetMapping("page")
     @Operation(summary = "通知分页")
     @PreAuthorize("hasAuthority('sys:notice:page')")

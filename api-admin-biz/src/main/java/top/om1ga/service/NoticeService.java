@@ -17,4 +17,6 @@ public interface NoticeService extends BaseService<NoticeEntity> {
     void update(NoticeVO vo);
 
     void delete(Long id);
+
+    void delete(List<Long> ids);
 }
