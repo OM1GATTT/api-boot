@@ -1,68 +1,56 @@
-package top.om1ga.rbac.vo;
+package top.om1ga.rbac.query;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Range;
+import top.om1ga.common.query.Query;
 import top.om1ga.common.utils.DateUtils;
+import top.om1ga.rbac.vo.SysUserVO;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 系统用户vo
- *
- * @author mqxu
+ * @author: OM1GA
+ * @version: 1.0
+ * @Date: 2023年04月28日 14:30
+ * @Description:
+ * @since: 1.0
  */
 @Data
-@Schema(description = "用户")
-public class SysUserVO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
+@EqualsAndHashCode(callSuper = false)
+@Schema(description = "用户列表查询参数")
+public class SysUserQuery extends Query {
     @Schema(description = "id")
     private Long id;
 
     @Schema(description = "用户名", requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotBlank(message = "用户名不能为空")
     private String username;
 
     @Schema(description = "密码")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Schema(description = "姓名", requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotBlank(message = "姓名不能为空")
     private String realName;
 
     @Schema(description = "头像")
     private String avatar;
 
     @Schema(description = "性别 0：男   1：女   2：未知",requiredMode = Schema.RequiredMode.REQUIRED)
-    @Range(min = 0, max = 2, message = "性别不正确")
     private Integer gender;
 
     @Schema(description = "邮箱")
-    @Email(message = "邮箱格式不正确")
     private String email;
 
     @Schema(description = "手机号", requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotBlank(message = "手机号码不能为空")
-    @NotNull(message = "手机号不能为空")
-    @Length(min = 11, max = 11, message = "手机号只能为11位")
-    @Pattern(regexp = "^[1][3,4,5,6,7,8,9][0-9]{9}$", message = "手机号格式有误")
     private String mobile;
 
     @Schema(description = "状态 0：停用    1：正常", requiredMode = Schema.RequiredMode.REQUIRED)
-    @Range(min = 0, max = 1, message = "用户状态不正确")
     private Integer status;
 
     @Schema(description = "角色ID列表")
@@ -73,6 +61,5 @@ public class SysUserVO implements Serializable {
 
 
     @Schema(description = "创建时间")
-    @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN)
     private Date createTime;
 }

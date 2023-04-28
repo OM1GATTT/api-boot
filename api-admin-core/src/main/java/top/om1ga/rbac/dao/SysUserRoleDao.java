@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import top.om1ga.mybatis.dao.BaseDao;
 import top.om1ga.rbac.entity.SysUserRoleEntity;
 
+import java.util.List;
 
 /**
  * 用户角色关系 dao
@@ -12,5 +13,4 @@ import top.om1ga.rbac.entity.SysUserRoleEntity;
  */
 @Mapper
 public interface SysUserRoleDao extends BaseDao<SysUserRoleEntity> {
-
 }

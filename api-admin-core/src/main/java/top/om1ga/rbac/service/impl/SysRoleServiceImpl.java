@@ -8,6 +8,8 @@ import top.om1ga.rbac.dao.SysRoleDao;
 import top.om1ga.rbac.entity.SysRoleEntity;
 import top.om1ga.rbac.service.SysRoleService;
 
+import java.util.List;
+
 /**
  * 系统角色服务
  *
@@ -17,4 +19,9 @@ import top.om1ga.rbac.service.SysRoleService;
 @AllArgsConstructor
 public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleDao, SysRoleEntity> implements SysRoleService {
 
+
+    @Override
+    public List<Long> getRoleIdList(Long id) {
+        return baseMapper.getRoleIdList(id);
+    }
 }
