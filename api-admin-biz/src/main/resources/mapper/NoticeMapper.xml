@@ -3,4 +3,16 @@
 
 <mapper namespace="top.om1ga.dao.NoticeDao">
 
+    <select id="getList" resultType="top.om1ga.entity.NoticeEntity">
+
+            SELECT t1.*
+            FROM t_notice t1 WHERE t1.deleted = 0
+            <if test="title != null and title.trim() != ''">
+                AND t1.title LIKE CONCAT('%',#{title},'%')
+            </if>
+            <if test="content != null and content.trim() != ''">
+                AND t1.content LIKE CONCAT('%',#{content},'%')
+            </if>
+
+    </select>
 </mapper>

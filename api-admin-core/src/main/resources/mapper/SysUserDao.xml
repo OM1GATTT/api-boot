@@ -7,13 +7,19 @@
         SELECT t1.*
         FROM sys_user t1 WHERE t1.super_admin = 0 AND t1.deleted = 0
         <if test="username != null and username.trim() != ''">
-            AND t1.username = #{username}
+            AND t1.username LIKE CONCAT('%',#{username},'%')
+        </if>
+        <if test="realName != null and realName.trim() != ''">
+            AND t1.real_name LIKE CONCAT('%',#{realName},'%')
         </if>
         <if test="mobile != null and mobile.trim() != ''">
-            AND t1.mobile = #{mobile}
+            AND t1.mobile LIKE CONCAT('%',#{mobile},'%')
         </if>
         <if test="gender != null">
-            AND t1.gender = #{gender}
+            AND t1.gender=#{gender}
+        </if>
+        <if test="beginTime != null and endTime != null">
+            AND t1.create_time BETWEEN #{beginTime} AND #{endTime}
         </if>
     </select>
 

@@ -4,6 +4,9 @@ import org.apache.ibatis.annotations.Mapper;
 import top.om1ga.entity.NoticeEntity;
 import top.om1ga.mybatis.dao.BaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author: OM1GA
  * @version: 1.0
@@ -13,4 +16,5 @@ import top.om1ga.mybatis.dao.BaseDao;
  */
 @Mapper
 public interface NoticeDao extends BaseDao<NoticeEntity> {
+    List<NoticeEntity> getList(Map<String,Object> params);
 }

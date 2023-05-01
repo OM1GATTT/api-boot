@@ -49,6 +49,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserDao, SysUserEntit
 
     @Override
     public PageResult<SysUserVO> page(SysUserQuery query) {
+        System.out.println(query);
 //        查询参数
         Map<String, Object> params = getParams(query);
 //        分页查询
@@ -59,19 +60,15 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserDao, SysUserEntit
         return new PageResult<>(SysUserConvert.INSTANCE.convertList(list),page.getTotal());
     }
 
-//    @Override
-//    public SysUserEntity getById(Long id) {
-//        if (id==null){
-//            throw new ServerException("用户id不能为空");
-//        }
-//        return baseMapper.getById(id);
-//    }
 
     private Map<String,Object> getParams(SysUserQuery query){
         Map<String,Object> params = new HashMap<>();
         params.put("username",query.getUsername());
+        params.put("realName",query.getRealName());
         params.put("mobile",query.getMobile());
         params.put("gender",query.getGender());
+        params.put("beginTime",query.getBeginTime());
+        params.put("endTime",query.getEndTime());
         return params;
     }
 
