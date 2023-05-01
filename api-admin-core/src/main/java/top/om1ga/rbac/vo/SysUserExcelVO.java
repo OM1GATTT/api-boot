@@ -37,7 +37,7 @@ public class SysUserExcelVO implements Serializable {
     private String email;
 
     @ExcelProperty("手机号")
-    private Integer mobile;
+    private String mobile;
 
     @ExcelProperty("状态")
     private Integer status;

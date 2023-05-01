@@ -1,6 +1,7 @@
 package top.om1ga.rbac.service;
 
 
+import org.springframework.web.multipart.MultipartFile;
 import top.om1ga.common.utils.PageResult;
 import top.om1ga.mybatis.service.BaseService;
 import top.om1ga.rbac.entity.SysUserEntity;
@@ -51,4 +52,17 @@ public interface SysUserService extends BaseService<SysUserEntity> {
     void delete(List<Long> ids);
 
 
+    void importByExcel(MultipartFile file, String password);
+
+    /**
+     * 导出用户信息为excel
+     */
+    void export();
+
+    /**
+     * 修改用户状态
+     * @param id 用户id
+     * @param status 需要修改的状态
+     */
+    void updateStatus(long id,int status);
 }

@@ -1,11 +1,18 @@
 package top.om1ga.rbac.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import top.om1ga.common.constant.Constant;
+import top.om1ga.common.excel.ExcelFinishCallBack;
 import top.om1ga.common.exception.ServerException;
+import top.om1ga.common.utils.DateUtils;
+import top.om1ga.common.utils.ExcelUtils;
 import top.om1ga.common.utils.PageResult;
 import top.om1ga.mybatis.service.impl.BaseServiceImpl;
 import top.om1ga.rbac.convert.SysUserConvert;
@@ -14,8 +21,10 @@ import top.om1ga.rbac.entity.SysUserEntity;
 import top.om1ga.rbac.enums.SuperAdminEnum;
 import top.om1ga.rbac.query.SysUserQuery;
 import top.om1ga.rbac.service.SysUserService;
+import top.om1ga.rbac.vo.SysUserExcelVO;
 import top.om1ga.rbac.vo.SysUserVO;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,5 +118,39 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserDao, SysUserEntit
        removeByIds(ids);
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void importByExcel(MultipartFile file,String password){
+        ExcelUtils.readAnalysis(file, SysUserExcelVO.class, new ExcelFinishCallBack<>() {
+            @Override
+            public void doAfterAllAnalysed(List<SysUserExcelVO> result) {
+                saveUser(result);
+            }
 
+            @Override
+            public void doSaveBatch(List<SysUserExcelVO> result) {
+                saveUser(result);
+            }
+
+            private void saveUser(List<SysUserExcelVO> result){
+
+            }
+        });
+    }
+
+    @Override
+    @SneakyThrows
+    public void export(){
+        List<SysUserEntity> list = list(Wrappers.lambdaQuery(SysUserEntity.class).eq(SysUserEntity::getSuperAdmin, SuperAdminEnum.NO.getValue()));
+        List<SysUserExcelVO> userExcelVOList = SysUserConvert.INSTANCE.convert2List(list);
+//        导出到下载
+        ExcelUtils.excelExport(SysUserExcelVO.class,"system_user_excel"+ DateUtils.format(new Date()),"sheet1",userExcelVOList);
+    }
+
+    @Override
+    public void updateStatus(long id, int status) {
+        SysUserEntity entity = baseMapper.getById(id);
+        entity.setStatus(status);
+        baseMapper.updateById(entity);
+    }
 }
