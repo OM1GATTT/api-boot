@@ -149,7 +149,7 @@ public class SysUserController {
         sysUserService.export();
     }
 
-    @GetMapping("status")
+    @PostMapping("status")
     @Operation(summary = "修改用户状态")
     @PreAuthorize("hasAuthority('sys:user:export')")
     public Result<String> updateStatus(@RequestParam Long id,@RequestParam Integer status){
