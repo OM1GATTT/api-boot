@@ -49,7 +49,6 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserDao, SysUserEntit
 
     @Override
     public PageResult<SysUserVO> page(SysUserQuery query) {
-        System.out.println(query);
 //        查询参数
         Map<String, Object> params = getParams(query);
 //        分页查询
