@@ -157,4 +157,11 @@ public class SysUserController {
         sysUserService.updateStatus(id,status);
         return Result.ok();
     }
+
+    @PostMapping("/role/{userId}")
+    @Operation(summary = "配置用户角色")
+    public Result<String> setUserRole(@PathVariable Long userId,@RequestBody List<Long> roleIdList){
+        sysUserRoleService.saveOrUpdate(userId,roleIdList);
+        return Result.ok();
+    }
 }
