@@ -3,4 +3,10 @@
 
 <mapper namespace="top.om1ga.rbac.dao.SysRoleMenuDao">
 
+    <select id="getMenuIdList" resultType="java.lang.Long">
+        SELECT menu_id
+        FROM sys_role_menu
+        WHERE role_id = #{roleId}
+          AND deleted = 0
+    </select>
 </mapper>

@@ -24,6 +24,7 @@ import top.om1ga.rbac.entity.SysUserEntity;
 import top.om1ga.rbac.query.SysUserQuery;
 import top.om1ga.rbac.service.SysMenuService;
 import top.om1ga.rbac.service.SysRoleService;
+import top.om1ga.rbac.service.SysUserRoleService;
 import top.om1ga.rbac.service.SysUserService;
 import top.om1ga.rbac.vo.SysAuthVO;
 import top.om1ga.rbac.vo.SysUserPasswordVO;
@@ -47,7 +48,7 @@ public class SysUserController {
     private final SysMenuService sysMenuService;
     private final PasswordEncoder passwordEncoder;
     private final SysUserService sysUserService;
-    private final SysRoleService sysRoleService;
+    private final SysUserRoleService sysUserRoleService;
 
     @PostMapping("info")
     @Operation(summary = "获取登录用户信息")
@@ -93,7 +94,7 @@ public class SysUserController {
         SysUserEntity entity = sysUserService.getById(id);
         SysUserVO vo = SysUserConvert.INSTANCE.convert(entity);
 //        用户角色列表
-        List<Long> roleIdList = sysRoleService.getRoleIdList(id);
+        List<Long> roleIdList = sysUserRoleService.getRoleIdList(id);
         vo.setRoleIdList(roleIdList);
         return Result.ok(vo);
     }

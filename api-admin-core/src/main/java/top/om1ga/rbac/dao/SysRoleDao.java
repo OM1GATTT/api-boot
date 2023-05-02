@@ -13,5 +13,5 @@ import java.util.List;
  */
 @Mapper
 public interface SysRoleDao extends BaseDao<SysRoleEntity> {
-    public List<Long> getRoleIdList(Long userId);
+
 }
