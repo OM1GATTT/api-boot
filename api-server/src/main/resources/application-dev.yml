@@ -31,3 +31,11 @@ storage:
     domain: http://localhost:8080
   local:
     path: D:\geek\docs\upload
+
+aliyun:
+  sms:
+    platform: 0
+    signName: om1ga
+    templateId: SMS_460700329
+    accessKey: LTAI5tMSamjH7YMXuS9nWvJW
+    secretKey: S83Zb6iAmnQv3rQftkhBd4FTwIc8g5

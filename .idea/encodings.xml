@@ -4,6 +4,9 @@
     <file url="file://$PROJECT_DIR$/api-admin-biz/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-admin-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-plugin/sms-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

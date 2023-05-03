@@ -3,14 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>api-boot</artifactId>
         <groupId>top.om1ga</groupId>
+        <artifactId>api-plugin</artifactId>
         <version>${revision}</version>
     </parent>
+
+    <artifactId>sms-plugin</artifactId>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>api-admin-core</artifactId>
-    <description>后台系统核心功能模块</description>
     <packaging>jar</packaging>
+    <description>短信模块</description>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -20,25 +27,13 @@
         </dependency>
 
         <dependency>
-            <groupId>top.om1ga</groupId>
-            <artifactId>sms-plugin</artifactId>
-            <version>${revision}</version>
+            <groupId>com.aliyun</groupId>
+            <artifactId>dysmsapi20170525</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.whvcse</groupId>
-            <artifactId>easy-captcha</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
         </dependency>
     </dependencies>
 

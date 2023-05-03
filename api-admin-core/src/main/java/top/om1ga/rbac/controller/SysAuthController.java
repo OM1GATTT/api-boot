@@ -4,14 +4,18 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 import top.om1ga.common.utils.Result;
 import top.om1ga.rbac.service.SysAuthService;
 import top.om1ga.rbac.service.SysCaptchaService;
 import top.om1ga.rbac.vo.SysAccountLoginVO;
 import top.om1ga.rbac.vo.SysCaptchaVO;
+import top.om1ga.rbac.vo.SysMobileLoginVO;
 import top.om1ga.rbac.vo.SysTokenVO;
 import top.om1ga.security.utils.TokenUtils;
+import top.om1ga.sms.api.SmsApi;
+import top.om1ga.sms.service.SmsService;
 
 /**
  * 认证接口
@@ -26,6 +30,8 @@ public class SysAuthController {
     private final SysAuthService sysAuthService;
 
     private final SysCaptchaService sysCaptchaService;
+
+    private final SmsApi smsApi;
 
     @GetMapping("captcha")
     @Operation(summary = "验证码")
@@ -48,4 +54,22 @@ public class SysAuthController {
 
         return Result.ok();
     }
+
+    @PostMapping("send/code")
+    @Operation(summary = "发送短信验证码")
+    public Result<String> sendCode(String mobile){
+        Boolean flag = sysAuthService.sendCode(mobile);
+        if (!flag){
+            return Result.error("短信发送失败!");
+        }
+        return Result.ok();
+    }
+
+    @PostMapping("mobile")
+    @Operation(summary = "手机号登录")
+    public Result<SysTokenVO> mobile(@RequestBody SysMobileLoginVO sysMobileLoginVO){
+        SysTokenVO token = sysAuthService.loginByMobile(sysMobileLoginVO);
+        return  Result.ok(token);
+    }
+
 }

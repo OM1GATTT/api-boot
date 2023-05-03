@@ -21,6 +21,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
 import top.om1ga.security.exception.SecurityAuthenticationEntryPoint;
+import top.om1ga.security.mobile.MobileAuthenticationProvider;
+import top.om1ga.security.mobile.MobileUserDetailsService;
+import top.om1ga.security.mobile.MobileVerifyCodeService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +44,8 @@ public class SecurityConfig {
     private final PasswordEncoder passwordEncoder;
     private final ApplicationEventPublisher applicationEventPublisher;
 
+    private final MobileUserDetailsService mobileUserDetailsService;
+    private final MobileVerifyCodeService mobileVerifyCodeService;
     @Bean
     DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -50,6 +55,10 @@ public class SecurityConfig {
         return daoAuthenticationProvider;
     }
 
+    @Bean
+    MobileAuthenticationProvider mobileAuthenticationProvider(){
+        return new MobileAuthenticationProvider(mobileUserDetailsService,mobileVerifyCodeService);
+    }
 
     /**
      * 账号密码进行登录认证
@@ -60,6 +69,8 @@ public class SecurityConfig {
         List<AuthenticationProvider> providerList = new ArrayList<>();
 //        账号密码登录
         providerList.add(daoAuthenticationProvider());
+//        手机验证码登录
+        providerList.add(mobileAuthenticationProvider());
 
         ProviderManager providerManager = new ProviderManager(providerList);
         providerManager.setAuthenticationEventPublisher(new DefaultAuthenticationEventPublisher(applicationEventPublisher));
