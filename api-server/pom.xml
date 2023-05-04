@@ -20,9 +20,16 @@
 
         <dependency>
             <groupId>top.om1ga</groupId>
+            <artifactId>storage-plugin</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.om1ga</groupId>
             <artifactId>api-admin-biz</artifactId>
             <version>${revision}</version>
         </dependency>
+
         <dependency>
             <groupId>top.om1ga</groupId>
             <artifactId>api-admin-core</artifactId>

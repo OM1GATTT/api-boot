@@ -23,14 +23,24 @@ spring:
       pool-name: MakuHikariCP
 
 
+# 存储类型：local、aliyun、minio
+#storage:
+#  enabled: true
+#  config:
+#    type: local
+#    domain: http://localhost:8080
+#  local:
+#    path: D:\LocalStorage\upload
 storage:
   enabled: true
   config:
-    # 存储类型：local、aliyun、minio
-    type: local
-    domain: http://localhost:8080
-  local:
-    path: D:\geek\docs\upload
+    type: aliyun
+    domain: https://omga-oss.oss-cn-nanjing.aliyuncs.com
+  aliyun:
+    access-key-id: LTAI5tMSamjH7YMXuS9nWvJW
+    access-key-secret: S83Zb6iAmnQv3rQftkhBd4FTwIc8g5
+    end-point: oss-cn-nanjing.aliyuncs.com
+    bucket-name: omga-oss
 
 aliyun:
   sms:
