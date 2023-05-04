@@ -14,3 +14,22 @@
 2023-05-04 16:15:27.878 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-05-04 16:15:27.900 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 2023-05-04 16:15:27.908 [main] INFO  top.om1ga.ServerApplication - Started ServerApplication in 4.256 seconds (process running for 5.095)
+2023-05-04 16:19:39.363 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-05-04 16:19:39.398 [main] INFO  top.om1ga.ServerApplication - Starting ServerApplication using Java 17.0.1 with PID 44520 (D:\JavaPrograme\api-boot\api-server\target\classes started by 84508 in D:\JavaPrograme\api-boot)
+2023-05-04 16:19:39.402 [main] INFO  top.om1ga.ServerApplication - The following 1 profile is active: "dev"
+2023-05-04 16:19:40.213 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-05-04 16:19:40.215 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-05-04 16:19:40.256 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 0 Redis repository interfaces.
+2023-05-04 16:19:40.871 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 16:19:40.880 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-04 16:19:40.881 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 16:19:40.881 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-04 16:19:41.034 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 16:19:41.035 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1601 ms
+2023-05-04 16:19:43.224 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73852720, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22854f2b, org.springframework.security.web.context.SecurityContextHolderFilter@64f33dee, org.springframework.security.web.header.HeaderWriterFilter@7ebfe01a, org.springframework.security.web.authentication.logout.LogoutFilter@456b140f, top.om1ga.security.filter.AuthenticationTokenFilter@5464b97c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10e4ee33, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e90cec8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ae0a26, org.springframework.security.web.session.SessionManagementFilter@69fd99c1, org.springframework.security.web.access.ExceptionTranslationFilter@7c5d36c3, org.springframework.security.web.access.intercept.AuthorizationFilter@f6bc75c]
+2023-05-04 16:19:43.543 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-04 16:19:43.566 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 16:19:43.576 [main] INFO  top.om1ga.ServerApplication - Started ServerApplication in 4.503 seconds (process running for 5.373)
+2023-05-04 16:19:47.765 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-04 16:19:47.766 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-04 16:19:47.767 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
