@@ -35,7 +35,6 @@ import java.util.Set;
  */
 @Service
 @AllArgsConstructor
-@Slf4j
 public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuDao, SysMenuEntity> implements SysMenuService {
 
     private final SysRoleMenuService sysRoleMenuService;
@@ -93,13 +92,10 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuDao, SysMenuEntit
 //        系统管理员，拥有最高权限
         if (user.getSuperAdmin().equals(SuperAdminEnum.YES.getValue())) {
             menuList = baseMapper.getMenuList(type);
-            log.info(menuList.toString());
         } else {
             menuList = baseMapper.getUserMenuList(user.getId(), type);
-            log.info(menuList.toString());
         }
         List<SysMenuVO> build = TreeUtils.build(SysMenuConvert.INSTANCE.convertList(menuList));
-        log.info(build.toString());
         return build;
     }
 
